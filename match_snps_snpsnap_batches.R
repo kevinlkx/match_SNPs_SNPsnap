@@ -31,7 +31,7 @@ option_list = list(
 
 opt = parse_args(OptionParser(option_list=option_list))
 
-print(opt)
+# print(opt)
 
 filename_input <- opt$input_file
 dir_out <- opt$dir_out
@@ -45,8 +45,8 @@ num_batches <- opt$num_batches
 idx_batch <- opt$idx_batch
 
 # Example:
-# filename_input <- "/project2/xinhe/kevinluo/neuron_ATACseq/SNPsnap/from_Yifan/ASoC_Glut20_SNPlist_hg19.txt"
-# dir_out <- "/project2/xinhe/kevinluo/neuron_ATACseq/SNPsnap/from_Yifan/"
+# filename_input <- "/project2/xinhe/kevinluo/SNPsnap/test/test_input.txt"
+# dir_out <- "/project2/xinhe/kevinluo/SNPsnap/test/"
 # population <- "EUR"
 # num_matching_snps <- 100
 # thresh_MAF <- 0.05
@@ -121,7 +121,6 @@ match_snps_db <- function(snpsnap_input, snpID_list_input_exist, exclude_HLA = T
 
 split_SNPs_batches <- function(filename_input, dir_out, num_batches = 10){
 
-  cat("Split SNPs into", num_batches, "batches... \n")
   chunk <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE))
 
   prefix_name <- tools::file_path_sans_ext(basename(filename_input))
@@ -146,11 +145,15 @@ split_SNPs_batches <- function(filename_input, dir_out, num_batches = 10){
     stop("Number of SNPs < number of batches!")
   }
 
-  snpID_batches.l <- chunk(snpID_list_input, num_batches)
+  if(num_batches > 1){
+    snpID_batches.l <- chunk(snpID_list_input, num_batches)
+  }else{
+    snpID_batches.l <- list(snpID_list_input)
+  }
 
   saveRDS(snpID_batches.l, paste0(dir_output, "/", prefix_name, "_", num_batches, "batches.rds"))
 
-  cat("\nSplit SNPs into", num_batches, "batches.", "Output directory:", dir_output, "\n")
+  cat("\nSplit SNPs into", num_batches, "batches:", dir_output, "\n")
 
 }
 
