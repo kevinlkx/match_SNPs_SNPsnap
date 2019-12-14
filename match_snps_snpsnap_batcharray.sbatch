@@ -22,10 +22,10 @@ num_batches=$5
 
 module load R/3.5.1
 
-dir_code=~/projects/neuron_ATACseq/neuron_ATACseq_workflowr/code/
+dir_code=/project2/xinhe/kevinluo/SNPsnap/code
 
 echo "Input file: ${filename_input}"
-echo "Dir output: ${dir_out}"
+echo "Directory output: ${dir_out}"
 
 echo "Batch #${idx_batch} out of ${num_batches} batches."
 
@@ -34,7 +34,7 @@ Rscript ${dir_code}/match_snps_snpsnap_batches.R \
   --dir_out ${dir_out} \
   --num_batches ${num_batches} \
   --idx_batch ${idx_batch} \
-  --population EUR \
+  --population ${population} \
   --num_matching_snps ${num_matching_snps}
 
 
