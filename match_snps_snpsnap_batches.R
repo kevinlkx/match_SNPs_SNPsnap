@@ -2,6 +2,9 @@
 
 ## match control SNPs using SNPsnap database
 library(optparse)
+library(foreach)
+library(doParallel)
+# library(data.table)
 
 option_list = list(
   make_option("--input_file", action="store", default=NA, type='character',
@@ -152,9 +155,8 @@ split_SNPs_batches <- function(filename_input, dir_out, num_batches = 10){
 }
 
 ##### parameters #####
-library(foreach)
-library(doParallel)
-library(data.table)
+# directory for SNPsnap database
+dir_SNPsnap_database <- "/project2/xinhe/kevinluo/SNPsnap/database/"
 
 # use the environment variable SLURM_NTASKS_PER_NODE to set the number of cores
 num_cores <- Sys.getenv("SLURM_NTASKS_PER_NODE")
@@ -216,7 +218,6 @@ if(any(grep("^rs", snpID_list_input))){
 cat("Match control SNPs using SNPsnap database \n")
 
 cat("Load SNPsnap database ... \n")
-dir_SNPsnap_database <- "/project2/xinhe/kevinluo/SNPsnap/database/"
 
 # snpsnap_db <- as.data.frame(fread(paste0(dir_SNPsnap_database, "/", population, "/ld0.5_collection.tab.gz")))
 if(!file.exists(paste0(dir_SNPsnap_database, "/", population, "/ld0.5_collection.rds"))){
