@@ -1,3 +1,10 @@
+## R packages required
+```
+library(optparse)
+library(foreach)
+library(doParallel)
+```
+
 ## Example setting in match_snps_snpsnap_batches.R
 ```
 # filename_input <- "/project2/xinhe/kevinluo/SNPsnap/test/test_input.txt"
