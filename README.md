@@ -39,3 +39,8 @@ cd ${dir_out}/matched_SNPs/test_input_${num_batches}batches
 
 cat SNPmatch_100_matchedSNPs_batch*.txt | gzip > SNPmatch_100_matchedSNPs.txt.gz
 ```
+
+## Output format
+The file named “SNPmatch_*_matchedSNPs.txt” has a table of input SNPs and matched SNPs. The first column contains the input SNPs, the second is the number of SNPs in the SNPsnap database satisfied our thresholds, the following columns are matching SNPs sampled from the SNPsnap database that satisfied our thresholds.
+The file named “snpsnap_input_exist.txt” saved the information for the SNPs that exist in the database.
+The file named “unincluded_snps.txt” show the SNPs that are not exist in the database.
