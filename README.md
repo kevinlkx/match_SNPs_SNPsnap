@@ -1,5 +1,4 @@
-# match_SNPs_SNPsnap
-match control SNPs using SNPsnap database and algorithm
+# match control SNPs using local SNPsnap database and algorithm adapted from SNPsnap paper
 
 ## R packages required
 ```
@@ -22,7 +21,7 @@ library(doParallel)
 # idx_batch <- 1
 ```
 
-## slurm code 
+## slurm code on U Chicago RCC compute cluster
 ```
 inputfile=/project2/xinhe/kevinluo/SNPsnap/test/test_input.txt
 dir_out=/project2/xinhe/kevinluo/SNPsnap/test/
