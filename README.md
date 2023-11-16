@@ -4,7 +4,7 @@ The code was originally written for members of Xin He lab at UChicago to run SNP
 without having to use the SNPsnap web server.
 
 The SNPsnap database was downloaded from the [SNPsnap website](http://www.broadinstitute.org/mpg/snpsnap/match_snps.html).
-The database file (`ld0.5_collection`) of European population can also be downloaded [here](https://uchicago.box.com/s/x7v0eg62zvyz2tw1f460iyrajqgcjlw1)
+The database file (`ld0.5_collection`) of European population can also be downloaded [here](https://uchicago.box.com/s/x7v0eg62zvyz2tw1f460iyrajqgcjlw1).
 
 ## R packages required
 ```
