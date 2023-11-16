@@ -1,6 +1,7 @@
 # match control SNPs using local SNPsnap database and algorithm adapted from SNPsnap paper
 
-The code was originally written for members of Xin He lab at U Chicago to run SNPsnap on RCC compute cluster.
+The code was originally written for members of Xin He lab at UChicago to run SNPsnap locally on UChicago RCC compute cluster, 
+without having to use the SNPsnap web server.
 
 The SNPsnap database was downloaded from the [SNPsnap website](http://www.broadinstitute.org/mpg/snpsnap/match_snps.html).
 
